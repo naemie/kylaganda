@@ -657,8 +657,8 @@
               <circle class="route-pin me" id="pin-me" cx="280" cy="92" r="8"/>
             </svg>
             <div class="route-labels">
-              <span><b>kyla</b><small id="her-city"></small></span>
-              <span><b>eman</b><small id="my-city"></small></span>
+              <span><b>kyla</b><small id="my-kyla"></small></span>
+              <span><b>eman</b><small id="me-eman"></small></span>
             </div>
           </div>
 
@@ -817,8 +817,8 @@
     const CONFIG = {
       birthday: '2026-10-13T00:00:00+08:00',
       metOn: '2026-10-01T00:00:00+08:00',
-      myCity: 'Mabait',
-      herCity: 'Ganda',
+      meEman: 'Mabait',
+      myKyla: 'Ganda',
       myTimeZone: 'Asia/Manila',
       herTimeZone: 'Asia/Manila',
       countdownGate: true,
@@ -1335,8 +1335,8 @@
       }
 
       function renderCities() {
-        if (CONFIG.myCity) $('#my-city').textContent = CONFIG.myCity;
-        if (CONFIG.herCity) $('#her-city').textContent = CONFIG.herCity;
+        if (CONFIG.meEman) $('#me-eman').textContent = CONFIG.meEman;
+        if (CONFIG.myKyla) $('#my-kyla').textContent = CONFIG.myKyla;
       }
 
       const HUG_LINES = [

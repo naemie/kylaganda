@@ -774,7 +774,9 @@
       50% { transform: scale(1.05, .94) skewX(-2deg); }
       75% { transform: scale(.96, 1.04) skewX(1deg); }
     }
-    .cake-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+    .cake-hint { margin: 18px 0 0; padding: 7px 16px; border-radius: 999px; background: rgba(255, 255, 255, .8); box-shadow: inset 0 0 0 1px rgba(210, 60, 116, .18); color: var(--rose-700); font-size: .92rem; font-weight: 800; text-align: center; animation: nudge 1.8s ease-in-out infinite; transition: background-color .8s ease, color .8s ease; }
+    .lights-off .cake-hint { background: rgba(255, 255, 255, .12); color: #ffe1ec; }
+    .cake-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
     .cake-mic.is-listening { animation: glow 1.6s ease-in-out infinite; }
     .cake-status { min-height: 1.7em; max-width: 30rem; margin: 14px auto 0; color: var(--ink-soft); font-weight: 700; text-align: center; text-wrap: balance; transition: color .8s ease; }
     .lights-off .cake-status { color: rgba(255, 233, 242, .9); }
@@ -1035,10 +1037,11 @@
             <span class="candle" style="--x:65.33%;--y:66.92%;--cc:#ff9dbb;--fd:-.65s" aria-hidden="true"><i class="flame"></i></span>
           </button>
 
+          <p class="cake-hint">tap mo yung fire sa candle or click mo yung button</p>
           <div class="cake-actions">
-            <button class="btn cake-mic" id="cake-mic" type="button"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg> <span id="cake-mic-label">Click mo 'tong button or tap mo isa isa yung apoy sa candle</span></button>
+            <button class="btn cake-mic" id="cake-mic" type="button"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg> <span id="cake-mic-label">Click mo 'tong buttong then hipan mo yung candle</span></button>
           </div>
-          <p class="cake-status" id="cake-status" aria-live="polite">tap mo yung candles or click mo yung button</p>
+          <p class="cake-status" id="cake-status" aria-live="polite"></p>
         </div>
       </div>
     </section>
@@ -2019,7 +2022,7 @@
       const micLabel = $('#cake-mic-label');
       const status = $('#cake-status');
       const idleText = status.textContent;
-      const noMicText = 'ayaw gumana ng mic HAHAHAJAJAJA tap mo na lang yung apoy sa candles';
+      const noMicText = 'ayaw gumana ng mic HAHAHAJAJAJA tap mo na lang yung candles';
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const canListen = Boolean(AudioCtx && navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
       let lit = candles.length;
@@ -2042,7 +2045,7 @@
         mode = next;
         micButton.classList.toggle('is-listening', next === 'listening');
         micIcon.setAttribute('href', next === 'relight' ? '#i-sparkle' : '#i-mic');
-        micLabel.textContent = next === 'listening' ? 'relight?' : (next === 'relight' ? 'relight' : 'hipan mo ulit?');
+        micLabel.textContent = next === 'listening' ? 'hipan mo na screen mo baby' : (next === 'relight' ? 'relight' : 'hipan mo ulit?');
       }
 
       function render() {
@@ -2094,7 +2097,7 @@
         render();
         buzz(18);
         if (lit === 0) finish();
-        else status.textContent = `${lit} candle na lang, baby! `;
+        else status.textContent = `${lit} candle na lang, baby! 💨`;
       }
 
       function nearest(x) {
@@ -2175,7 +2178,7 @@
         };
         rafId = window.requestAnimationFrame(sample);
         stopTimer = window.setTimeout(() => {
-          if (mine === token) cancelListening('tap mo ulit yung mic or click mo yung apoy ng candles hehe');
+          if (mine === token) cancelListening('tap mo ulit yung mic pag ready ka na hehe');
         }, 30000);
       }
 

@@ -1036,7 +1036,7 @@
           </button>
 
           <div class="cake-actions">
-            <button class="btn cake-mic" id="cake-mic" type="button"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg> <span id="cake-mic-label">Click mo 'tong buttong then hipan mo yung candle</span></button>
+            <button class="btn cake-mic" id="cake-mic" type="button"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg> <span id="cake-mic-label">Click mo 'tong button or tap mo isa isa yung apoy sa candle</span></button>
           </div>
           <p class="cake-status" id="cake-status" aria-live="polite">tap mo yung candles or click mo yung button</p>
         </div>
@@ -2019,7 +2019,7 @@
       const micLabel = $('#cake-mic-label');
       const status = $('#cake-status');
       const idleText = status.textContent;
-      const noMicText = 'ayaw gumana ng mic HAHAHAJAJAJA tap mo na lang yung candles';
+      const noMicText = 'ayaw gumana ng mic HAHAHAJAJAJA tap mo na lang yung apoy sa candles';
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const canListen = Boolean(AudioCtx && navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
       let lit = candles.length;
@@ -2175,7 +2175,7 @@
         };
         rafId = window.requestAnimationFrame(sample);
         stopTimer = window.setTimeout(() => {
-          if (mine === token) cancelListening('tap mo ulit yung mic pag ready ka na hehe');
+          if (mine === token) cancelListening('tap mo ulit yung mic or click mo yung apoy ng candles hehe');
         }, 30000);
       }
 
